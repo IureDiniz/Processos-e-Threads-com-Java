@@ -3,14 +3,14 @@ import java.lang.Thread;
 public class Questao3 {
 
 	public static void main(String[] args) throws InterruptedException {
-		Deposito dep = new Deposito();
-		Produtor p = new Produtor(dep, 50);
+		Deposito3 dep = new Deposito3();
+		Produtor3 p = new Produtor3(dep, 50);
 		
-		Consumidor c1 = new Consumidor(dep, 150);
-		Consumidor c2 = new Consumidor(dep, 100);
-		Consumidor c3 = new Consumidor(dep, 150);
-		Consumidor c4 = new Consumidor(dep, 100);
-		Consumidor c5 = new Consumidor(dep, 150);
+		Consumidor3 c1 = new Consumidor3(dep, 150);
+		Consumidor3 c2 = new Consumidor3(dep, 100);
+		Consumidor3 c3 = new Consumidor3(dep, 150);
+		Consumidor3 c4 = new Consumidor3(dep, 100);
+		Consumidor3 c5 = new Consumidor3(dep, 150);
 		
 		p.start();
 		
@@ -26,11 +26,11 @@ public class Questao3 {
 	}
 }
 
-class Produtor extends Thread {
-	private Deposito dep;
+class Produtor3 extends Thread {
+	private Deposito3 dep;
 	private int n;
 	
-	Produtor(Deposito dep, int n) throws InterruptedException{
+	Produtor3(Deposito3 dep, int n) throws InterruptedException{
 		this.dep = dep;
 		this.n = n;
 	}
@@ -48,11 +48,11 @@ class Produtor extends Thread {
 	}
 }
 
-class Consumidor extends Thread {
-	private Deposito dep;
+class Consumidor3 extends Thread {
+	private Deposito3 dep;
 	private int n;
 	
-	Consumidor(Deposito dep, int n) throws InterruptedException{
+	Consumidor3(Deposito3 dep, int n) throws InterruptedException{
 		this.dep = dep;
 		this.n = n;
 	}
@@ -75,7 +75,7 @@ class Consumidor extends Thread {
 	}
 }
 
-class Deposito extends Thread{
+class Deposito3 extends Thread{
 	private int itens = 0;
 	private final int capacidade = 100;
 	
